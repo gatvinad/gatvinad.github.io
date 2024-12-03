@@ -10,13 +10,35 @@ body {
   margin: 0;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  margin-right: 20px;
+}
+
 select {
   background-color: #333;
   color: #fff;
   border: 1px solid #555;
   padding: 10px;
-  margin-bottom: 20px;
   border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
 }
 
 button {
@@ -68,7 +90,6 @@ input[type="checkbox"]:checked:active {
 label {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 label input[type="checkbox"] {
@@ -116,7 +137,7 @@ label input[type="checkbox"] {
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 1s;
+  animation: slideUp 0.8s cubic-bezier(0.25, 1.25, 0.5, 1.2);
 }
 
 .notification span {
@@ -171,12 +192,13 @@ label input[type="checkbox"] {
 
 .queue-container {
   margin-top: 20px;
+  position: relative;
 }
 
 .queue-boxes {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .queue-box {
@@ -184,14 +206,14 @@ label input[type="checkbox"] {
   color: #000;
   border: 2px solid #000;
   border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 5px 10px;
+  font-size: 12px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .show-result {
@@ -208,16 +230,48 @@ label input[type="checkbox"] {
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  animation: slideUp 0.5s ease-in-out;
+  animation: slideUp 0.8s cubic-bezier(0.25, 1.25, 0.5, 1.2);
 }
 
 @keyframes slideUp {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate(-50%, 50px) scale(0.9);
   }
-  to {
+  60% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -10px) scale(1.1);
   }
+  80% {
+    transform: translate(-50%, 5px) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: flex-start; /* Tata elemen dalam flex baris */
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.select-checkbox-wrapper {
+  display: flex;
+  flex-direction: column; /* Susun elemen secara vertikal */
+  align-items: flex-start; /* Pastikan elemen dirapatkan ke kiri */
+  margin-right: 20px; /* Jarak ke elemen tombol di sebelah kanan */
+  gap: 10px; /* Jarak antar elemen */
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap; /* Agar tombol bisa terbungkus jika terlalu banyak */
+  gap: 1px;
+}
+
+input[type="checkbox"] {
+  margin-left: 40px; /* Pindahkan checkbox ke kanan */
 }
